@@ -113,7 +113,7 @@ async def homepage(request):
     create_tables(DATABASE_NAME,TABLE_NAME,0, 1 )
     ingest_data(DATABASE_NAME,TABLE_NAME,0,1,100 )
     
-    return JSONResponse({statusCode': 200, 'DATABASE_NAME': DATABASE_NAME,'TABLE_NAME': TABLE_NAME})
+    return JSONResponse({'statusCode': 200, 'DATABASE_NAME': DATABASE_NAME,'TABLE_NAME': TABLE_NAME})
 
 
 app = Starlette(debug=True, routes=[
