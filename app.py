@@ -15,6 +15,9 @@ from random import choice
 from string import ascii_uppercase
 
 boto3.set_stream_logger(name='botocore')
+region = "us-east-1"
+client = boto3.client("timestream-write", region_name= region)
+
 
 def create_database(db):
     try:
@@ -102,8 +105,6 @@ def write_records_with_common_attributes(db,table,record_count):
         
        
 async def homepage(request):
-    region = "us-east-1"
-    client = boto3.client("timestream-write", region_name= region)
     suffix = ''.join(choice(ascii_uppercase) for i in range(60))
     
     DATABASE_NAME = "GB1_" + suffix
